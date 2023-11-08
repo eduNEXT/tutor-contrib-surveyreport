@@ -1,0 +1,2 @@
+recursive-include surveyreport/patches *
+recursive-include surveyreport/templates *
