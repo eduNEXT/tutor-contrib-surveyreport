@@ -22,7 +22,8 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         ("SURVEYREPORT_VERSION", __version__),
         ("SURVEYREPORT_ENABLE", True),
         ("SURVEYREPORT_SCHEDULE", "0 0 1 1,6 *"),
-        ("SURVEYREPORT_AUTO_SEND", False),
+        ("SURVEYREPORT_AUTO_SEND", True),
+        ("SURVEYREPORT_ANONYMOUS", False),
     ]
 )
 

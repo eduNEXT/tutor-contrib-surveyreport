@@ -26,7 +26,7 @@ Usage
 Tutor settings
 -----------------------
 
-These variables will be settled by default if you want to make override you can set it in `config.yml` file.
+These variables will be settled by default if you want to override them you can set it in `config.yml` file.
 
 .. code-block:: yaml
 
