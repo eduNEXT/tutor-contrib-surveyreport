@@ -10,6 +10,8 @@ from tutor import hooks
 
 from .__about__ import __version__
 
+from surveyreport.hooks import *
+
 ########################################
 # CONFIGURATION
 ########################################
