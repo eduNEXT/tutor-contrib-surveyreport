@@ -3,37 +3,29 @@ from tutor import hooks, config as tutor_config, fmt
 import click
 from tutor.interactive import ask_bool
 
-
-@hooks.Actions.INTERACTIVE_CONFIGURATION.add()
+@hooks.Actions.CONFIG_INTERACTIVE.add()
 def ask_survey_report_questions(config: Config) -> None:
+    fmt.echo_info(
+    """The Open edX Project relies on the collective strength of its community to be a thriving platform for online education"""
+    )
+    fmt.echo_info(
+    """We invite you to join the Open edX Data Sharing Initiative by sharing an anonymized reports of aggregated data from your institution's usage of the platform."""
+    )
+    fmt.echo_info(
+    """The report data will be sent to Axim Collaborative, the non-profit behind the Open edX project."""
+    )
+
+    texto_con_enlace = click.style("See more: https://github.com/eduNEXT/edx-platform/tree/master/openedx/features/survey_report#survey-report", fg='blue', underline=True)
+    click.echo(texto_con_enlace)
+
     defaults = tutor_config.get_defaults()
     enable_survey_report = click.confirm(
         fmt.question(
-            "Would you like to send reports of usage back to the Open edX project?"
+            "Would you like to send automatic and anonymized reports of usage back to the Open edX project?"
             " Type 'n' if you don't want to"
         ),
         prompt_suffix=" ",
         default=True,
     )
     config["SURVEYREPORT_ENABLE"] = enable_survey_report
-
-    if enable_survey_report:
-        ask_bool(
-            (
-                "Send anonymous survey report? Important note:"
-                " the report will be sent with a unique id instead of site name."
-            ),
-            "SURVEYREPORT_ANONYMOUS",
-            config,
-            defaults,
-        )
-        ask_bool(
-            (
-                "Send survey report automatically? Important note:"
-                " If you don't want to send it automatically, you must send it from Django admin."
-            ),
-            "SURVEYREPORT_AUTO_SEND",
-            config,
-            defaults,
-        )
-        
+    config["SURVEYREPORT_AUTO_SEND"] = enable_survey_report
