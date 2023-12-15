@@ -10,6 +10,8 @@ from tutor import hooks
 
 from .__about__ import __version__
 
+from surveyreport.hooks import *
+
 ########################################
 # CONFIGURATION
 ########################################
@@ -20,10 +22,10 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
         # Each new setting is a pair: (setting_name, default_value).
         # Prefix your setting names with 'SURVEYREPORT_'.
         ("SURVEYREPORT_VERSION", __version__),
-        ("SURVEYREPORT_ENABLE", True),
+        ("SURVEYREPORT_ENABLE", False),
         ("SURVEYREPORT_SCHEDULE", "0 0 1 1,6 *"),
-        ("SURVEYREPORT_AUTO_SEND", True),
-        ("SURVEYREPORT_ANONYMOUS", False),
+        ("SURVEYREPORT_AUTO_SEND", False),
+        ("SURVEYREPORT_ANONYMOUS", True),
     ]
 )
 
