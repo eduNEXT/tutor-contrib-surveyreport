@@ -15,8 +15,8 @@ def ask_survey_report_questions(config: Config) -> None:
     """The report data will be sent to Axim Collaborative, the non-profit behind the Open edX project."""
     )
 
-    texto_con_enlace = click.style("See more: https://github.com/eduNEXT/edx-platform/tree/master/openedx/features/survey_report#survey-report", fg='blue', underline=True)
-    click.echo(texto_con_enlace)
+    link_to_docs = click.style("See more: https://github.com/eduNEXT/edx-platform/tree/master/openedx/features/survey_report#survey-report", fg='blue', underline=True)
+    click.echo(link_to_docs)
 
     defaults = tutor_config.get_defaults()
     enable_survey_report = click.confirm(
